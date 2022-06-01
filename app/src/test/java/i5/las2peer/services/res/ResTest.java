@@ -107,6 +107,17 @@ public class ResTest {
       e.printStackTrace();
       fail("Exception: " + e);
     }
+    
+    try {
+      ClientResponse result = c.sendRequest("POST", mainPath + "/test", "");
+          
+      Assert.assertTrue("Status code equals 201 [329238]", result.getHttpCode() == 201);
+
+      System.out.println("Result of 'test$HTTP_Method_Name$': " + result.getResponse().trim());
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
 
     
   }
